@@ -1,0 +1,45 @@
+<div class="swiper-container">
+  <div class="swiper-wrapper">
+      <ng-container *ngFor="let item of swiperList">
+          <div class="swiper-slide">
+              <img [src]="item.icon" alt="">
+          </div>
+      </ng-container>
+  </div>
+  <!-- 如果需要分页器 -->
+  <div class="swiper-pagination"></div>
+
+  <!-- 如果需要导航按钮 -->
+  <!-- <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div> -->
+
+  <!-- 如果需要滚动条 -->
+  <!-- <div class="swiper-scrollbar"></div> -->
+</div>
+
+<div *ngFor="let item of data">
+  <app-app-list *ngIf='item.dataListType === 3' [titleName]="item.name" [appList]="item.dataList[0].list"></app-app-list>
+  <app-show-subject *ngIf='item.dataListType === 2' [list]="item.dataList"></app-show-subject>
+</div>
+
+<div *ngIf="!anotherDataFlag">
+  <div *ngFor="let item of anotherData">
+    <app-app-list *ngIf='item.dataListType === 3' [titleName]="item.name" [appList]="item.dataList[0].list"></app-app-list>
+    <app-show-subject *ngIf='item.dataListType === 2' [list]="item.dataList"></app-show-subject>
+  </div>
+  
+  <div class="footer">
+    <div class="argument">
+      <a class="footer-a" href="#">华为应用市场用户协议</a>
+      <span>和</span>
+      <a class="footer-a" href="#">关于华为应用市场与隐私的声明</a>
+    </div>
+    <p>苏ICP备17040376号 | 苏网文 [2018] 6607-116号 </p>
+    <p>增值电信业务经营许可证：苏B2-20130048号 </p>
+    <p>中国反网络病毒联盟应用商店自律组</p>
+    <p>违法和不良信息举报电话:950800</p>
+    <p>华为应用市场 版权所有 © 2010-2019</p>
+  </div>
+</div>
+
+
