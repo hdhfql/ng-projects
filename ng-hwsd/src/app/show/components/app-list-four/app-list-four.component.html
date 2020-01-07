@@ -1,0 +1,22 @@
+<div class="search-wrapper">
+  <input type="text" placeholder="搜索应用、游戏">
+  <span class="iconfont">&#xe636;</span>
+</div>
+  
+<ul class="appList">
+  <li class="list" *ngFor="let list of appList">
+    <h2 class="title">{{list.name}}</h2>
+
+    <div *ngIf="list.adList">
+      <ul class="adList">
+        <li class="ad-wrapper" *ngFor="let item of list.adList">
+          <img [src]="item.icon">
+          <p>{{item.name}}</p>
+        </li>
+      </ul>
+      <app-app-four-list [list]="list.dataList" [maxHeight]="84"></app-app-four-list>
+    </div>
+
+    <app-app-four-list *ngIf="!list.adList" [list]="list.dataList" [maxHeight]="126"></app-app-four-list>
+  </li>
+</ul>
